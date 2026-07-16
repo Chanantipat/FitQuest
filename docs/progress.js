@@ -1,4 +1,4 @@
-const API_URL = "https://fitquest-api-sbhd.onrender.com";
+const API_URL = "https://fitquest-api-sbhd.onrender.com/api";
 
 const userId = localStorage.getItem("userId");
 
@@ -162,14 +162,18 @@ loadProgress();
 
 const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector(".menu");
-hamburger.addEventListener("click", function () {
-    menu.classList.toggle("active");
-    if (menu.classList.contains("active")) {
-        hamburger.innerHTML = "✖";
-    } else {
-        hamburger.innerHTML = "☰";
-    }
-});
+
+if (hamburger && menu) {
+    hamburger.addEventListener("click", function () {
+        menu.classList.toggle("active");
+
+        if (menu.classList.contains("active")) {
+            hamburger.innerHTML = "✖";
+        } else {
+            hamburger.innerHTML = "☰";
+        }
+    });
+}
 
 function formatDate(dateValue) {
     return new Date(dateValue).toLocaleString("en-GB", {

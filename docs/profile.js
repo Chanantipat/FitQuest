@@ -1,5 +1,5 @@
-const API_URL = "https://fitquest-api-sbhd.onrender.com";
-
+const API_URL =
+    "https://fitquest-api-sbhd.onrender.com/api";
 
 document
 .getElementById("profileForm")

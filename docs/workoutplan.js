@@ -1,7 +1,7 @@
 let selectedWorkoutId = null;
 let currentWorkouts = [];
 let currentUser = null;
-const API_URL = "https://fitquest-api-sbhd.onrender.com";
+const API_URL = "https://fitquest-api-sbhd.onrender.com/api";
 
 
 const userId = localStorage.getItem("userId");
@@ -307,11 +307,6 @@ selectedWorkout.exp;
 currentUser.exp += expGain;
 currentUser.workoutSessions++;
 
-if(currentUser.exp >= 100){
-    currentUser.level++;
-    currentUser.exp -= 100;
-}
-
 while(currentUser.exp >= 100){
 
 
@@ -508,11 +503,14 @@ alert("Workout completed but history not saved.");
 });
 const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector(".menu");
-hamburger.addEventListener("click", function () {
-    menu.classList.toggle("active");
-    if (menu.classList.contains("active")) {
-        hamburger.innerHTML = "✖";
-    } else {
-        hamburger.innerHTML = "☰";
-    }
-});
+
+if (hamburger && menu) {
+    hamburger.addEventListener("click", function () {
+        menu.classList.toggle("active");
+
+        hamburger.innerHTML =
+            menu.classList.contains("active")
+                ? "✖"
+                : "☰";
+    });
+}
