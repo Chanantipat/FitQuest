@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitQuest</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">FitQuest</div>
+        <button class="hamburger">
+            ☰
+        </button>
+        <ul class="menu">
+            <li><a href="#" class="active">Dashboard</a></li>
+            <li><a href="BMI.html">BMI Calculator</a></li>
+            <li><a href="workoutplan.html">Workout Plans</a></li>
+            <li><a href="progress.html">Progress</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="welcome">
+            <h1 id="welcomeText">
+                Welcome, <span class="username" id="username"></span>
+            </h1>
+
+            <p class="subtitle">
+                Here's your fitness overview
+            </p>
+        </section>
+
+        <section class="cards">
+            <div class="card">
+                <h3>Current BMI</h3>
+                <h2 id="bmi"></h2>
+            </div>
+
+            <div class="card">
+                <h3>Current Level</h3>
+                <h2 id="level">Level 1</h2>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="expText">0 / 100 EXP</p>
+            </div>
+
+            <div class="card">
+                <h3>Workout Sessions</h3>
+                <h2 id="workoutSessions">0</h2>
+            </div>
+            <div class="card">
+                <h3>Latest Weight</h3>
+                <h2 id="latestWeight"></h2>
+            </div>
+        </section>
+
+        <h2 class="section-title">
+            Quick Actions
+        </h2>
+
+        <section class="actions">
+            <div class="action-card"><a href="BMI.html">
+                <h3>Calculate BMI</h3>
+                <p>your body mass index</p>
+            </a></div>
+            <div class="action-card"><a href="workoutplan.html">
+                <h3>Workout Plans</h3>
+                <p>Choose your plans</p>
+            </a></div>
+            <div class="action-card"><a href="progress.html">
+                <h3>Track Progress</h3>
+                <p>Log workouts & body stats</p>
+            </a></div>
+        </section>
+
+        <section class="profile-card">
+            <div class="profile-header">
+                <h2>Your Profile</h2>
+            </div>
+            <div class="profile-grid">
+                <div class="profile-item">
+                    <p>Age</p>
+                    <h3 id="age"></h3>
+                </div>
+                <div class="profile-item">
+                    <p>Gender</p>
+                    <h3 id="gender"></h3>
+                </div>
+                <div class="profile-item">
+                    <p>Height</p>
+                    <h3 id="height"></h3>
+                </div>
+                <div class="profile-item">
+                    <p>Weight</p>
+                    <h3 id="weight"></h3>
+                </div>
+                <div class="profile-item">
+                    <p>Goal</p>
+                    <h3 id="goal"></h3>
+                </div>
+                <div class="profile-item">
+                    <p>Fitness Level</p>
+                    <h3 id="fitnessLevel"></h3>
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+    <script src="dashboard.js"></script>
+</body>
+</html>

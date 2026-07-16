@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitQuest - Progress</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="progress.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            FitQuest
+        </div>
+        <button class="hamburger">
+            ☰
+        </button>
+        <ul class="menu">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="BMI.html">BMI Calculator</a></li>
+            <li><a href="workoutplan.html">Workout Plans</a></li>
+            <li><a href="progress.html" class="active">Progress</a></li>
+        </ul>
+    </nav>
+
+    <main class="progress-container">
+        <section class="progress-header">
+            <h1>Your Progress</h1>
+            <p>
+                Track your fitness journey and workout history
+            </p>
+        </section>
+
+        <section class="summary-grid">
+            <div class="summary-card">
+                <h3>Current BMI</h3>
+                <p id="currentBMI">-</p>
+            </div>
+            <div class="summary-card">
+                <h3>Current Level</h3>
+                <p id="currentLevel">-</p>
+            </div>
+            <div class="summary-card">
+                <h3>Current EXP</h3>
+                <p id="currentEXP">-</p>
+            </div>
+            <div class="summary-card">
+                <h3>workoutSessions</h3>
+                <p id="workoutSessions">-</p>
+            </div>
+            <div class="summary-card">
+                <h3>Latest Weight</h3>
+                <p id="latestWeight">-</p>
+            </div>
+        </section>
+
+        <sesction class="history-section">
+            <div class="history-title">
+                <h2>Workout History</h2>
+                <span id="historyCount">0 Workouts</span>
+            </div>
+            <div class="history-list" id="historyList">
+                <p class="loading-text">
+                    Loading workout history...
+                </p>
+            </div>
+        </sesction>
+    </main>
+    <script src="progress.js"></script>
+</body>
+</html>

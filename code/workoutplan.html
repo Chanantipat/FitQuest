@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitQuest - Workout</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="workout.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">FitQuest</div>
+        <button class="hamburger">
+            ☰
+        </button>
+        <ul class="menu">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="BMI.html">BMI Calculator</a></li>
+            <li><a href="workoutplan.html" class="active">Workout Plans</a></li>
+            <li><a href="progress.html">Progress</a></li>
+        </ul>
+    </nav>
+    <main class="workout-container">
+        <section class="welcome">
+            <h1>Welcome <span class="username" id="username"></span></h1>
+            <p class="subtitle" id="recommendText">
+                Your recommended workout
+            </p>
+        </section>
+
+        <section class="workout-grid" id="workoutList"></section>
+        <button class="workout-btn" id="completeWorkout">
+            Complete Workout
+        </button>
+        <p id="rewardText"></p>
+    </main>
+    <script src="workoutplan.js"></script>
+</body>
+</html>

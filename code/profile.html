@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitQuest - Create Profile</title>
+
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+    <main class="profile-page">
+
+        <div class="background-shape shape-one"></div>
+        <div class="background-shape shape-two"></div>
+
+        <section class="profile-container">
+
+            <div class="profile-intro">
+
+                <a href="index.html" class="logo">
+                    Fit<span>Quest</span>
+                </a>
+
+                <p class="tag">
+                    CREATE YOUR FITNESS PROFILE
+                </p>
+
+                <h1>
+                    Start your fitness journey
+                </h1>
+
+                <p class="description">
+                    Tell us about yourself so FitQuest can recommend
+                    workouts based on your goal and fitness level.
+                </p>
+
+                <div class="intro-features">
+
+                    <div class="feature">
+                        <span>01</span>
+
+                        <div>
+                            <h3>Personal workouts</h3>
+                            <p>Programs matched with your goal.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <span>02</span>
+
+                        <div>
+                            <h3>Track progress</h3>
+                            <p>Collect EXP and level up.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <span>03</span>
+
+                        <div>
+                            <h3>Health overview</h3>
+                            <p>Monitor BMI and workout sessions.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <form class="profile-form" id="profileForm">
+
+                <div class="form-header">
+                    <p>FITQUEST PROFILE</p>
+                    <h2>Create your profile</h2>
+                    <span>Complete the information below.</span>
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="input-group full-width">
+                        <label for="username">
+                            Username
+                        </label>
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter your username"
+                            required
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="age">
+                            Age
+                        </label>
+
+                        <input
+                            type="number"
+                            id="age"
+                            name="age"
+                            placeholder="Your age"
+                            min="1"
+                            required
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="gender">
+                            Gender
+                        </label>
+
+                        <select id="gender" name="gender" required>
+                            <option value="">Select gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="height">
+                            Height
+                            <span>cm</span>
+                        </label>
+
+                        <input
+                            type="number"
+                            id="height"
+                            name="height"
+                            placeholder="Example: 175"
+                            min="1"
+                            required
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="weight">
+                            Weight
+                            <span>kg</span>
+                        </label>
+
+                        <input
+                            type="number"
+                            id="weight"
+                            name="weight"
+                            placeholder="Example: 65"
+                            min="1"
+                            required
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="goal">
+                            Fitness Goal
+                        </label>
+
+                        <select id="goal" name="goal" required>
+                            <option value="">Select goal</option>
+                            <option value="Build Muscle">
+                                Build Muscle
+                            </option>
+                            <option value="Lose Weight">
+                                Lose Weight
+                            </option>
+                            <option value="Maintain Weight">
+                                Maintain Weight
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="fitnessLevel">
+                            Fitness Level
+                        </label>
+
+                        <select
+                            id="fitnessLevel"
+                            name="fitnessLevel"
+                            required
+                        >
+                            <option value="">Select level</option>
+                            <option value="Beginner">
+                                Beginner
+                            </option>
+                            <option value="Intermediate">
+                                Intermediate
+                            </option>
+                            <option value="Advanced">
+                                Advanced
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="save-btn">
+                    <span>Save Profile</span>
+                    <span class="arrow">→</span>
+                </button>
+
+                <p class="form-message" id="formMessage"></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <script src="profile.js"></script>
+
+</body>
+</html>
