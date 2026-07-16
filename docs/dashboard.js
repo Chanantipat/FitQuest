@@ -7,89 +7,76 @@ if (!userId) {
 }
 
 fetch(`https://fitquest-api-sbhd.onrender.com/api/users/${userId}`)
-.then(response => {
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Cannot load user data");
+        }
 
-    if (!response.ok) {
-        throw new Error("Cannot load user data");
-    }
+        return response.json();
+    })
+    .then(user => {
+        console.log("USER DATA =", user);
 
-    return response.json();
+        document.getElementById("username").textContent =
+            user.username;
 
-})
-.then(user => {
+        document.getElementById("age").textContent =
+            user.age;
 
-    console.log("USER DATA =", user);
+        document.getElementById("gender").textContent =
+            user.gender;
 
-    document.getElementById("username").textContent =
-        user.username;
+        document.getElementById("height").textContent =
+            user.height + " cm";
 
-    document.getElementById("age").textContent =
-        user.age;
+        document.getElementById("weight").textContent =
+            user.weight + " kg";
 
-    document.getElementById("gender").textContent =
-        user.gender;
+        document.getElementById("latestWeight").textContent =
+            user.weight + " kg";
 
-    document.getElementById("height").textContent =
-        user.height + " cm";
+        document.getElementById("goal").textContent =
+            user.goal;
 
-    document.getElementById("weight").textContent =
-        user.weight + " kg";
+        document.getElementById("fitnessLevel").textContent =
+            user.fitnessLevel;
 
-    document.getElementById("latestWeight").textContent =
-        user.weight + " kg";
+        const level = Number(user.level) || 1;
+        const exp = Number(user.exp) || 0;
+        const workoutSessions =
+            Number(user.workoutSessions) || 0;
 
-    document.getElementById("goal").textContent =
-        user.goal;
+        document.getElementById("level").textContent =
+            "Level " + level;
 
-    document.getElementById("fitnessLevel").textContent =
-        user.fitnessLevel;
+        document.getElementById("expText").textContent =
+            `${exp} / 100 EXP`;
 
-    document.getElementById("level").textContent =
-        "Level " + user.level;
+        document.getElementById("workoutSessions").textContent =
+            workoutSessions;
 
-    document.getElementById("expText").textContent =
-        user.exp + " / 100 EXP";
+        const weight = Number(user.weight);
+        const height = Number(user.height);
 
-    document.getElementById("workoutSessions").textContent =
-        user.workoutSessions;
+        const bmi =
+            weight / ((height / 100) ** 2);
 
-    const bmi =
-        user.weight / ((user.height / 100) ** 2);
+        document.getElementById("bmi").textContent =
+            bmi.toFixed(1);
 
-    document.getElementById("bmi").textContent =
-        bmi.toFixed(1);
+        const progressBar =
+            document.getElementById("progressFill");
 
-    const progress =
-        document.getElementById("progressFill");
+        progressBar.style.width = "0%";
 
-    progress.style.width = "0%";
-
-    const exp = Number(user.exp) || 0;
-const workoutSessions =
-    Number(user.workoutSessions) || 0;
-
-document.getElementById("expText").textContent =
-    `${exp} / 100 EXP`;
-
-document.getElementById("workoutSessions").textContent =
-    workoutSessions;
-
-const progress =
-    document.getElementById("progressFill");
-
-progress.style.width = "0%";
-
-setTimeout(() => {
-    progress.style.width =
-        `${Math.min(exp, 100)}%`;
-}, 300);;
-
-})
-.catch(error => {
-
-    console.error("DASHBOARD ERROR =", error);
-
-});
+        setTimeout(() => {
+            progressBar.style.width =
+                `${Math.min(exp, 100)}%`;
+        }, 300);
+    })
+    .catch(error => {
+        console.error("DASHBOARD ERROR =", error);
+    });
 
 const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector(".menu");
@@ -98,10 +85,9 @@ if (hamburger && menu) {
     hamburger.addEventListener("click", function () {
         menu.classList.toggle("active");
 
-        if (menu.classList.contains("active")) {
-            hamburger.innerHTML = "✖";
-        } else {
-            hamburger.innerHTML = "☰";
-        }
+        hamburger.innerHTML =
+            menu.classList.contains("active")
+                ? "✖"
+                : "☰";
     });
 }
