@@ -299,13 +299,19 @@ return;
 // ==========================
 
 
-const expGain =
-selectedWorkout.exp;
+const expGain = Number(selectedWorkout.exp);
 
+currentUser.exp = Number(currentUser.exp) + expGain;
 
+currentUser.workoutSessions =
+    Number(currentUser.workoutSessions) + 1;
 
-currentUser.exp += expGain;
-currentUser.workoutSessions++;
+currentUser.level = Number(currentUser.level);
+
+while (currentUser.exp >= 100) {
+    currentUser.level++;
+    currentUser.exp -= 100;
+}
 
 while(currentUser.exp >= 100){
 

@@ -64,9 +64,25 @@ fetch(`https://fitquest-api-sbhd.onrender.com/api/users/${userId}`)
 
     progress.style.width = "0%";
 
-    setTimeout(() => {
-        progress.style.width = user.exp + "%";
-    }, 300);
+    const exp = Number(user.exp) || 0;
+const workoutSessions =
+    Number(user.workoutSessions) || 0;
+
+document.getElementById("expText").textContent =
+    `${exp} / 100 EXP`;
+
+document.getElementById("workoutSessions").textContent =
+    workoutSessions;
+
+const progress =
+    document.getElementById("progressFill");
+
+progress.style.width = "0%";
+
+setTimeout(() => {
+    progress.style.width =
+        `${Math.min(exp, 100)}%`;
+}, 300);;
 
 })
 .catch(error => {
