@@ -1,7 +1,7 @@
 let selectedWorkoutId = null;
 let currentWorkouts = [];
 let currentUser = null;
-const API_URL = "http://localhost:3000/api";
+const API_URL = "https://fitquest-api-sbhd.onrender.com";
 
 
 const userId = localStorage.getItem("userId");

@@ -6,7 +6,7 @@ if (!userId) {
     window.location.href = "profile.html";
 }
 
-fetch(`http://localhost:3000/api/users/${userId}`)
+fetch(`https://fitquest-api-sbhd.onrender.com/api/users/${userId}`)
 .then(response => {
 
     if (!response.ok) {
@@ -77,11 +77,15 @@ fetch(`http://localhost:3000/api/users/${userId}`)
 
 const hamburger = document.querySelector(".hamburger");
 const menu = document.querySelector(".menu");
-hamburger.addEventListener("click", function () {
-    menu.classList.toggle("active");
-    if (menu.classList.contains("active")) {
-        hamburger.innerHTML = "✖";
-    } else {
-        hamburger.innerHTML = "☰";
-    }
-});
+
+if (hamburger && menu) {
+    hamburger.addEventListener("click", function () {
+        menu.classList.toggle("active");
+
+        if (menu.classList.contains("active")) {
+            hamburger.innerHTML = "✖";
+        } else {
+            hamburger.innerHTML = "☰";
+        }
+    });
+}
