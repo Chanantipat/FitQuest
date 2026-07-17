@@ -163,16 +163,12 @@ body {
 
 .tag {
     width: fit-content;
-
     margin-bottom: 18px;
     padding: 7px 12px;
-
     color: #93c5fd;
     background: rgba(59, 130, 246, 0.13);
-
     border: 1px solid rgba(59, 130, 246, 0.25);
     border-radius: 999px;
-
     font-size: 11px;
     font-weight: bold;
     letter-spacing: 1.4px;
@@ -180,7 +176,6 @@ body {
 
 .profile-intro h1 {
     margin-bottom: 18px;
-
     color: #ffffff;
     font-size: clamp(36px, 5vw, 50px);
     line-height: 1.05;
@@ -190,7 +185,6 @@ body {
 .description {
     max-width: 430px;
     margin-bottom: 36px;
-
     color: #9fb3c8;
     font-size: 16px;
     line-height: 1.75;
@@ -210,26 +204,20 @@ body {
 
 .feature > span {
     flex-shrink: 0;
-
     width: 36px;
     height: 36px;
-
     display: grid;
     place-items: center;
-
     color: #93c5fd;
     background: rgba(59, 130, 246, 0.13);
-
     border: 1px solid rgba(59, 130, 246, 0.25);
     border-radius: 9px;
-
     font-size: 12px;
     font-weight: bold;
 }
 
 .feature h3 {
     margin-bottom: 5px;
-
     color: #f8fafc;
     font-size: 15px;
 }
@@ -239,10 +227,6 @@ body {
     font-size: 13px;
     line-height: 1.5;
 }
-
-/* =========================
-   FORM
-========================= */
 
 .profile-form {
     padding: 55px 48px;
@@ -415,6 +399,106 @@ body {
     color: #86efac;
     text-align: center;
     font-size: 13px;
+}
+
+/* =========================
+   Existing User Login
+========================= */
+
+.existing-user-box{
+    width:100%;
+    max-width:520px;
+    margin:0 auto 35px;
+    padding:28px;
+    border-radius:20px;
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.existing-user-header{
+    text-align:center;
+    margin-bottom:22px;
+}
+
+.existing-user-header p{
+    color:#38bdf8;
+    font-size:.85rem;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+
+.existing-user-header h2{
+    color:#fff;
+    margin-bottom:8px;
+    font-size:1.8rem;
+}
+
+.existing-user-header span{
+    color:#94a3b8;
+    font-size:.95rem;
+}
+
+#loginForm{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+#loginForm label{
+    display:block;
+    color:#e2e8f0;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+#loginForm input{
+    width:100%;
+    padding:14px 18px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(255,255,255,.06);
+    color:#fff;
+    font-size:15px;
+    outline:none;
+    transition:.3s;
+}
+
+#loginForm input::placeholder{
+    color:#94a3b8;
+}
+
+#loginForm input:focus{
+    border-color:#38bdf8;
+    box-shadow:0 0 0 3px rgba(56,189,248,.25);
+}
+
+.login-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#3b82f6,#06b6d4);
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 30px rgba(59,130,246,.35);
+}
+
+#loginMessage{
+    text-align:center;
+    margin-top:10px;
+    color:#f87171;
+    font-size:.9rem;
 }
 
 /* =========================
