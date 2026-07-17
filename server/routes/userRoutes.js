@@ -46,7 +46,51 @@ router.get("/", async(req,res)=>{
 });
 
 
+// ======================
+// GET USER BY USERNAME
+// ======================
 
+router.get("/name/:username", async (req, res) => {
+    try {
+        const username = req.params.username;
+
+        console.log(
+            "CALL GAS:",
+            "getUserByUsername",
+            username
+        );
+
+        const response = await gas.get("", {
+            params: {
+                action: "getUserByUsername",
+                username: username
+            }
+        });
+
+        console.log(
+            "USER BY NAME RESPONSE =",
+            response.data
+        );
+
+        if (!response.data) {
+            return res.status(404).json({
+                message: "User not found"
+            });
+        }
+
+        res.json(response.data);
+
+    } catch (error) {
+        console.error(
+            "GET USER BY USERNAME ERROR =",
+            error.message
+        );
+
+        res.status(500).json({
+            error: error.message
+        });
+    }
+});
 
 
 // ======================
@@ -54,66 +98,37 @@ router.get("/", async(req,res)=>{
 // ======================
 
 router.get("/:id", async(req,res)=>{
-
     try{
-
-
         console.log(
             "CALL GAS:",
             "getUser",
             req.params.id
         );
-
-
-
         const response =
         await gas.get("",{
-
             params:{
-
                 action:"getUser",
-
                 id:req.params.id
-
             }
-
         });
-
-
-
         console.log(
             "USER RESPONSE =",
             response.data
         );
-
-
-
         res.json(
             response.data
         );
-
-
-
     }
     catch(error){
-
-
         console.error(
             "GET USER ERROR =",
             error.message
         );
-
-
-
         res.status(500)
         .json({
             error:error.message
         });
-
-
-
     }
-
 });
 
 

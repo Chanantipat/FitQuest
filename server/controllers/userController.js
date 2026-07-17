@@ -84,9 +84,37 @@ const deleteUser = async(req,res)=>{
         });
     }
 };
+const getUserByUsername = async (req, res) => {
+    try {
+        const username = req.params.username;
+
+        const response = await axios.get(
+            `${GAS_URL}?action=getUserByUsername&username=${encodeURIComponent(username)}`
+        );
+
+        if (!response.data) {
+            return res.status(404).json({
+                message: "User not found"
+            });
+        }
+
+        res.json(response.data);
+
+    } catch (error) {
+        console.error(
+            "GET USER BY USERNAME ERROR =",
+            error.response?.data || error.message
+        );
+
+        res.status(500).json({
+            message: "Cannot find user"
+        });
+    }
+};
 module.exports = {
     getAllUsers,
     getUserById,
+    getUserByUsername,
     createUser,
     updateUser,
     deleteUser
