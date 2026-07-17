@@ -1,92 +1,73 @@
+/* =========================
+   RESET
+========================= */
+
 *,
 *::before,
 *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
     min-height: 100vh;
-    color: #f8fafc;
-    background: #07182b;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(37, 99, 235, 0.16),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(6, 182, 212, 0.12),
+            transparent 30%
+        ),
+        #06172a;
+    color: #ffffff;
 }
+
+
+/* =========================
+   PAGE
+========================= */
 
 .profile-page {
     position: relative;
     min-height: 100vh;
-    padding: 50px 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 48px 24px;
     overflow: hidden;
-    background:
-        radial-gradient(
-            circle at 15% 15%,
-            rgba(37, 99, 235, 0.14),
-            transparent 26%
-        ),
-        radial-gradient(
-            circle at 90% 85%,
-            rgba(14, 165, 233, 0.09),
-            transparent 28%
-        ),
-        #07182b;
-}
-
-.profile-page::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background-image:
-        linear-gradient(
-            rgba(148, 163, 184, 0.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(148, 163, 184, 0.025) 1px,
-            transparent 1px
-        );
-
-    background-size: 55px 55px;
-    pointer-events: none;
 }
 
 .background-shape {
-    position: absolute;
-
+    position: fixed;
     border-radius: 50%;
-    filter: blur(10px);
-
-    animation: floatingShape 7s ease-in-out infinite;
+    filter: blur(80px);
+    opacity: 0.25;
+    pointer-events: none;
 }
 
 .shape-one {
-    top: 8%;
-    left: 6%;
-
-    width: 180px;
-    height: 180px;
-
-    background: rgba(37, 99, 235, 0.08);
+    width: 360px;
+    height: 360px;
+    top: -120px;
+    left: -120px;
+    background: #2563eb;
 }
 
 .shape-two {
-    right: 5%;
-    bottom: 5%;
-
-    width: 230px;
-    height: 230px;
-
-    background: rgba(14, 165, 233, 0.07);
-    animation-delay: 1.5s;
+    width: 420px;
+    height: 420px;
+    right: -160px;
+    bottom: -160px;
+    background: #06b6d4;
 }
+
 
 /* =========================
    MAIN CONTAINER
@@ -94,67 +75,59 @@ body {
 
 .profile-container {
     position: relative;
-    z-index: 2;
-
-    width: min(1120px, 100%);
-
+    z-index: 1;
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
-
-    overflow: hidden;
-
-    background: rgba(9, 25, 46, 0.8);
+    align-items: stretch;
     border: 1px solid rgba(148, 163, 184, 0.14);
     border-radius: 28px;
-
-    box-shadow: 0 35px 90px rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(18px);
-
-    animation: pageEnter 0.8s ease both;
+    overflow: hidden;
+    background: rgba(7, 24, 43, 0.88);
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
 }
 
+
 /* =========================
-   INTRO SIDE
+   LEFT SIDE
 ========================= */
 
 .profile-intro {
     position: relative;
-
-    padding: 55px 48px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
+    padding: 58px 48px;
     background:
         linear-gradient(
-            145deg,
-            rgba(37, 99, 235, 0.18),
-            rgba(8, 23, 43, 0.85)
+            160deg,
+            rgba(30, 64, 175, 0.18),
+            rgba(7, 24, 43, 0.94)
         );
-
     border-right: 1px solid rgba(148, 163, 184, 0.12);
 }
 
-.profile-intro::after {
+.profile-intro::before {
     content: "";
     position: absolute;
-    top: -80px;
-    right: -90px;
-    width: 220px;
-    height: 220px;
-    border: 1px solid rgba(96, 165, 250, 0.15);
+    width: 180px;
+    height: 180px;
+    top: -70px;
+    right: -50px;
+    border: 1px solid rgba(59, 130, 246, 0.25);
     border-radius: 50%;
 }
 
 .logo {
-    width: fit-content;
-    margin-bottom: 52px;
+    display: inline-block;
+    margin-bottom: 56px;
     color: #ffffff;
-    font-size: 31px;
+    font-size: 30px;
     font-weight: 800;
-    letter-spacing: -1.2px;
     text-decoration: none;
+    letter-spacing: -1px;
 }
 
 .logo span {
@@ -162,30 +135,30 @@ body {
 }
 
 .tag {
-    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 13px;
     margin-bottom: 18px;
-    padding: 7px 12px;
-    color: #93c5fd;
-    background: rgba(59, 130, 246, 0.13);
-    border: 1px solid rgba(59, 130, 246, 0.25);
+    border: 1px solid rgba(59, 130, 246, 0.45);
     border-radius: 999px;
+    color: #7dd3fc;
+    background: rgba(59, 130, 246, 0.12);
     font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 1.4px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
 }
 
 .profile-intro h1 {
+    max-width: 450px;
     margin-bottom: 18px;
-    color: #ffffff;
-    font-size: clamp(36px, 5vw, 50px);
-    line-height: 1.05;
+    font-size: clamp(40px, 5vw, 58px);
+    line-height: 1.02;
     letter-spacing: -2px;
 }
 
 .description {
-    max-width: 430px;
-    margin-bottom: 36px;
-    color: #9fb3c8;
+    max-width: 480px;
+    color: #a8bad0;
     font-size: 16px;
     line-height: 1.75;
 }
@@ -193,7 +166,8 @@ body {
 .intro-features {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
+    margin-top: 46px;
 }
 
 .feature {
@@ -204,105 +178,171 @@ body {
 
 .feature > span {
     flex-shrink: 0;
-    width: 36px;
-    height: 36px;
+    width: 42px;
+    height: 42px;
     display: grid;
     place-items: center;
-    color: #93c5fd;
-    background: rgba(59, 130, 246, 0.13);
-    border: 1px solid rgba(59, 130, 246, 0.25);
-    border-radius: 9px;
-    font-size: 12px;
-    font-weight: bold;
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    border-radius: 12px;
+    color: #7dd3fc;
+    background: rgba(59, 130, 246, 0.12);
+    font-size: 13px;
+    font-weight: 700;
 }
 
 .feature h3 {
     margin-bottom: 5px;
-    color: #f8fafc;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .feature p {
-    color: #71839b;
+    color: #7f93aa;
     font-size: 13px;
     line-height: 1.5;
 }
 
-.profile-form {
-    padding: 55px 48px;
-    background: rgba(7, 20, 38, 0.8);
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 36px;
+    background: rgba(7, 24, 43, 0.72);
 }
+
+
+/* =========================
+   CARD COMMON
+========================= */
+
+.existing-user-box,
+.profile-form {
+    width: 100%;
+    padding: 30px;
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    border-radius: 22px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 41, 59, 0.9),
+            rgba(15, 32, 51, 0.9)
+        );
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+
+/* =========================
+   LOGIN CARD
+========================= */
+
+.existing-user-header {
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+.existing-user-header p {
+    margin-bottom: 8px;
+    color: #22d3ee;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+.existing-user-header h2 {
+    margin-bottom: 8px;
+    font-size: 28px;
+    letter-spacing: -0.7px;
+}
+
+.existing-user-header span {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+/* =========================
+   CREATE PROFILE HEADER
+========================= */
 
 .form-header {
-    margin-bottom: 32px;
+    margin-bottom: 26px;
 }
 
-.form-header > p {
+.form-header p {
     margin-bottom: 8px;
-
     color: #60a5fa;
-    font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 1.5px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
 }
 
 .form-header h2 {
     margin-bottom: 8px;
-
-    color: #ffffff;
-    font-size: 31px;
-    letter-spacing: -1px;
+    font-size: 30px;
+    letter-spacing: -0.8px;
 }
 
 .form-header span {
-    color: #71839b;
+    color: #94a3b8;
     font-size: 14px;
 }
 
+
+/* =========================
+   FORM
+========================= */
+
 .form-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 21px 18px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
 }
 
 .input-group {
-    display: flex;
-    flex-direction: column;
+    min-width: 0;
 }
 
-.full-width {
+.input-group.full-width {
     grid-column: 1 / -1;
 }
 
 .input-group label {
-    margin-bottom: 9px;
-
-    color: #dbe5f0;
+    display: block;
+    margin-bottom: 8px;
+    color: #dbeafe;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .input-group label span {
-    color: #64748b;
+    color: #6f8298;
     font-size: 11px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .input-group input,
 .input-group select {
     width: 100%;
-    height: 49px;
+    height: 50px;
     padding: 0 15px;
-
-    color: #f8fafc;
-    background: rgba(20, 35, 57, 0.85);
-
-    border: 1px solid rgba(148, 163, 184, 0.13);
-    border-radius: 11px;
-
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 12px;
     outline: none;
+    background: rgba(30, 50, 72, 0.78);
+    color: #ffffff;
     font-size: 14px;
-
     transition:
         border-color 0.25s ease,
         box-shadow 0.25s ease,
@@ -310,81 +350,84 @@ body {
         background 0.25s ease;
 }
 
-.input-group select {
-    cursor: pointer;
-}
-
-.input-group option {
-    color: #ffffff;
-    background: #10223a;
-}
-
 .input-group input::placeholder {
-    color: #5f7188;
+    color: #70849a;
 }
 
 .input-group input:hover,
 .input-group select:hover {
-    border-color: rgba(96, 165, 250, 0.35);
+    border-color: rgba(96, 165, 250, 0.45);
 }
 
 .input-group input:focus,
 .input-group select:focus {
-    background: rgba(24, 43, 70, 0.95);
-    border-color: #3b82f6;
-
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
-
+    border-color: #38bdf8;
+    background: rgba(30, 50, 72, 0.96);
+    box-shadow:
+        0 0 0 4px rgba(56, 189, 248, 0.12),
+        0 8px 22px rgba(0, 0, 0, 0.15);
     transform: translateY(-1px);
 }
 
+.input-group select {
+    cursor: pointer;
+}
+
+.input-group select option {
+    background: #10243a;
+    color: #ffffff;
+}
+
+
 /* =========================
-   BUTTON
+   BUTTONS
 ========================= */
 
+.login-btn,
 .save-btn {
     width: 100%;
-    min-height: 53px;
-    margin-top: 30px;
-    padding: 0 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 11px;
-
-    color: #ffffff;
-    background: #2f7df6;
-
+    min-height: 52px;
     border: none;
-    border-radius: 12px;
-
+    border-radius: 13px;
+    color: #ffffff;
+    background:
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #06b6d4
+        );
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 800;
     cursor: pointer;
-
-    box-shadow: 0 13px 27px rgba(37, 99, 235, 0.3);
-
+    box-shadow: 0 12px 28px rgba(14, 165, 233, 0.2);
     transition:
         transform 0.25s ease,
-        background 0.25s ease,
-        box-shadow 0.25s ease;
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
 }
 
+.login-btn:hover,
 .save-btn:hover {
-    background: #2563eb;
-
-    transform: translateY(-3px);
-
-    box-shadow: 0 17px 33px rgba(37, 99, 235, 0.42);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px rgba(14, 165, 233, 0.28);
+    filter: brightness(1.06);
 }
 
+.login-btn:active,
 .save-btn:active {
-    transform: scale(0.985);
+    transform: translateY(0);
+}
+
+.save-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 26px;
+    padding: 0 20px;
 }
 
 .save-btn .arrow {
-    font-size: 20px;
+    font-size: 22px;
     transition: transform 0.25s ease;
 }
 
@@ -392,203 +435,113 @@ body {
     transform: translateX(5px);
 }
 
+
+/* =========================
+   MESSAGE
+========================= */
+
 .form-message {
     min-height: 20px;
-    margin-top: 15px;
-
-    color: #86efac;
+    margin-top: 12px;
     text-align: center;
+    color: #f87171;
     font-size: 13px;
+    font-weight: 600;
 }
+
 
 /* =========================
-   Existing User Login
+   RESPONSIVE TABLET
 ========================= */
 
-.existing-user-box{
-    width:100%;
-    max-width:520px;
-    margin:0 auto 35px;
-    padding:28px;
-    border-radius:20px;
-    background:rgba(255,255,255,.05);
-    backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,.08);
-    box-shadow:0 15px 40px rgba(0,0,0,.25);
-}
+@media (max-width: 950px) {
 
-.existing-user-header{
-    text-align:center;
-    margin-bottom:22px;
-}
-
-.existing-user-header p{
-    color:#38bdf8;
-    font-size:.85rem;
-    font-weight:700;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    margin-bottom:8px;
-}
-
-.existing-user-header h2{
-    color:#fff;
-    margin-bottom:8px;
-    font-size:1.8rem;
-}
-
-.existing-user-header span{
-    color:#94a3b8;
-    font-size:.95rem;
-}
-
-#loginForm{
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-}
-
-#loginForm label{
-    display:block;
-    color:#e2e8f0;
-    margin-bottom:8px;
-    font-weight:600;
-}
-
-#loginForm input{
-    width:100%;
-    padding:14px 18px;
-    border-radius:12px;
-    border:1px solid rgba(255,255,255,.15);
-    background:rgba(255,255,255,.06);
-    color:#fff;
-    font-size:15px;
-    outline:none;
-    transition:.3s;
-}
-
-#loginForm input::placeholder{
-    color:#94a3b8;
-}
-
-#loginForm input:focus{
-    border-color:#38bdf8;
-    box-shadow:0 0 0 3px rgba(56,189,248,.25);
-}
-
-.login-btn{
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:12px;
-    background:linear-gradient(135deg,#3b82f6,#06b6d4);
-    color:#fff;
-    font-size:16px;
-    font-weight:700;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.login-btn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 12px 30px rgba(59,130,246,.35);
-}
-
-#loginMessage{
-    text-align:center;
-    margin-top:10px;
-    color:#f87171;
-    font-size:.9rem;
-}
-
-/* =========================
-   ANIMATION
-========================= */
-
-@keyframes pageEnter {
-    from {
-        opacity: 0;
-        transform: translateY(35px) scale(0.985);
+    .profile-page {
+        padding: 28px 18px;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-@keyframes floatingShape {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 900px) {
     .profile-container {
         grid-template-columns: 1fr;
-        max-width: 680px;
+        max-width: 760px;
     }
 
     .profile-intro {
-        padding: 42px;
+        padding: 42px 34px;
         border-right: none;
         border-bottom: 1px solid rgba(148, 163, 184, 0.12);
     }
 
     .logo {
-        margin-bottom: 35px;
+        margin-bottom: 36px;
     }
 
-    .profile-form {
-        padding: 42px;
+    .profile-intro h1 {
+        max-width: 600px;
+    }
+
+    .profile-actions {
+        padding: 28px;
     }
 }
 
+
 /* =========================
-   MOBILE
+   RESPONSIVE MOBILE
 ========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 620px) {
+
     .profile-page {
-        padding: 20px 13px;
-        align-items: flex-start;
+        padding: 14px;
     }
 
     .profile-container {
         border-radius: 20px;
     }
 
-    .profile-intro,
-    .profile-form {
-        padding: 31px 22px;
+    .profile-intro {
+        padding: 32px 22px;
+    }
+
+    .logo {
+        margin-bottom: 28px;
+        font-size: 26px;
     }
 
     .profile-intro h1 {
-        font-size: 34px;
+        font-size: 40px;
     }
 
+    .description {
+        font-size: 14px;
+    }
+
+    .intro-features {
+        margin-top: 34px;
+    }
+
+    .profile-actions {
+        gap: 18px;
+        padding: 18px;
+    }
+
+    .existing-user-box,
+    .profile-form {
+        padding: 22px 18px;
+        border-radius: 17px;
+    }
+
+    .existing-user-header h2,
     .form-header h2 {
-        font-size: 27px;
+        font-size: 24px;
     }
 
     .form-grid {
         grid-template-columns: 1fr;
+        gap: 17px;
     }
 
-    .full-width {
+    .input-group.full-width {
         grid-column: auto;
-    }
-
-    .logo {
-        font-size: 27px;
     }
 }
